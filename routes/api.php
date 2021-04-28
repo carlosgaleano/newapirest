@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('empresa', 'EmpresaController@showALL');
+Route::post('crear/empresa', 'EmpresaController@crear');
+Route::get('delete/empresa/{id}', 'EmpresaController@destroy');
+Route::put('update/empresa/', 'EmpresaController@update');
+
 
 Route::group([
     'prefix' => 'auth'
@@ -30,4 +35,6 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
     });
+
+
 });
